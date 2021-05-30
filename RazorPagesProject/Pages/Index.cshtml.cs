@@ -21,7 +21,7 @@ namespace RazorPagesProject.Pages
 
         public void OnGet()
         {
-            Message = $"Hello world! Today is {DateTime.Today.DayOfWeek}";
+            Message = "to Razor Pages based project";
         }
     }
 }

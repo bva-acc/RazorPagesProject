@@ -10,9 +10,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.gitignore = .gitignore
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RazorPagesProject.Models", "RazorPagesProject.Models\RazorPagesProject.Models.csproj", "{0B5777A7-F6E2-4B7A-8432-5FDABEEFB1FC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RazorPagesProject.Models", "RazorPagesProject.Models\RazorPagesProject.Models.csproj", "{0B5777A7-F6E2-4B7A-8432-5FDABEEFB1FC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RazorPagesProject.Services", "RazorPagesProject.Services\RazorPagesProject.Services.csproj", "{25D2BEA9-1388-42C1-AA32-1C4156DC7916}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RazorPagesProject.Services", "RazorPagesProject.Services\RazorPagesProject.Services.csproj", "{25D2BEA9-1388-42C1-AA32-1C4156DC7916}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
