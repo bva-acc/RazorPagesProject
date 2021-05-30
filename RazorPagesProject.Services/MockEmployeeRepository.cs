@@ -1,6 +1,7 @@
 ﻿using RazorPagesProject.Models;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace RazorPagesProject.Services
@@ -56,6 +57,11 @@ namespace RazorPagesProject.Services
         public IEnumerable<Employee> GetAllEmployees()
         {
             return _employeeList;
+        }
+
+        public Employee GetEmployee(int id)
+        {
+            return _employeeList.FirstOrDefault(x => x.Id == id);
         }
     }
 }

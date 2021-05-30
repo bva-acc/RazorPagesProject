@@ -140,3 +140,9 @@ body {
     background-color: #ca2355;
     border-color: #dc3545;
 }
+
+.cardTextLeftFloating {
+    text-align: left;
+    text-transform: uppercase;
+    padding-left: 20px;
+}
