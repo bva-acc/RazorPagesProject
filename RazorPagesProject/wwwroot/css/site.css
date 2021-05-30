@@ -1,6 +1,9 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
 
+/* Include in css file first line Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500&display=swap');
+/***************/
 a.navbar-brand {
   white-space: normal;
   text-align: center;
@@ -59,8 +62,10 @@ html {
 }
 
 body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
+    /* Margin bottom by footer height */
+    font-family: 'Cinzel', serif;
+    margin-top: 80px;
+    margin-bottom: 60px;
 }
 .footer {
   position: absolute;
@@ -68,4 +73,70 @@ body {
   width: 100%;
   white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */
+}
+
+.imageThumbnail {
+    height: 150px;
+    max-width: 150px;
+}
+
+.cardBoxShadow {
+    -webkit-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.50);
+    -moz-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.50);
+    box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.50);
+}
+
+.cardHeaderStyle {
+    background-color: rgba(0, 120, 147, 1);
+    border-radius: 45px 0 0 0 !important;
+    color: #000;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.card {
+    border-radius: 45px 0 45px 0;
+}
+
+.buttonShadow {
+    -webkit-box-shadow: inset 0px 0px 20px 10px rgba(0,0,0,0.75);
+    -moz-box-shadow: inset 0px 0px 20px 10px rgba(0,0,0,0.75);
+    box-shadow: inset 0px 0px 20px 10px rgba(0,0,0,0.75);
+}
+
+.card-body {
+    border-radius: 0 0 45px 0;
+}
+
+.buttonShadow {
+    -webkit-box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.50);
+    -moz-box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.50);
+    box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,0.50);
+}
+
+.menuBg {
+    background-color: rgba(0, 120, 147, 1);
+}
+
+.nameStyle {
+    color: white;
+    padding-top: 20px;
+}
+
+.btn-view {
+    color: #fff;
+    background-color: #28a4a7;
+    border-color: #288fa7;
+}
+
+.btn-edit {
+    color: #fff;
+    background-color: #1c92d2;
+    border-color: #1861ac;
+}
+
+.btn-delete {
+    color: #fff;
+    background-color: #ca2355;
+    border-color: #dc3545;
 }

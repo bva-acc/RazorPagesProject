@@ -49,7 +49,6 @@ namespace RazorPagesProject.Services
                     Id = 4,
                     Name = "Sarah",
                     Email = "sarah@example.com",
-                    PhotoPath = "empimage4.png",
                     Department = Department.IT
                 }
             };
