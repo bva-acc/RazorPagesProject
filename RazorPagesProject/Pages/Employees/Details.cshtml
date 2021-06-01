@@ -1,4 +1,4 @@
-﻿@page
+﻿@page "{id}"
 @model RazorPagesProject.Pages.Employees.DetailsModel
 @{
     ViewData["Title"] = "Employee details";
@@ -8,7 +8,7 @@
 <div class="row justify-content-center m-3">
     <div class="col col-lg-8">
         <div class="card cardBoxShadow">
-            
+
             <div class="card-header cardHeaderStyle nameStyle">
                 <h1>@Model.Employee.Name</h1>
             </div>
@@ -36,6 +36,7 @@
                         </div>
                     </div>
                 </div>
+            </div>
         </div>
     </div>
 </div>
