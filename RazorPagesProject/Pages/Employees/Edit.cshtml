@@ -1,11 +1,36 @@
-﻿@page "{id}"
+﻿@page "{id}/{handler?}"
 @model RazorPagesProject.Pages.Employees.EditModel
 @{
     ViewData["Title"] = "Edit";
     var photoPath = $"/images/{Model.Employee.PhotoPath ?? "noimage.png"}";
 }
 
-<form method="post" class="mt-3" enctype="multipart/form-data">
+<form method="post" asp-page-handler="UpdateNotificationPreferences">
+    <div class="row text-center notifyBlock">
+        <div class="col form-check">
+
+            <h1>Notification Preference</h1>
+            <input asp-for="Notify" />
+            <label asp-for="Notify">
+                Receive email notification when details change
+            </label>
+
+            <br />
+            <button type="submit" class="btn btn-view text-center">Update Notification Preference</button>
+
+            @if (!string.IsNullOrWhiteSpace(Model.Message))
+            {
+                <div class="alert alert-success" style="margin-top: 10px">
+                    <p class="p-3 mt-2">@Model.Message</p>
+                </div>
+            }
+        </div>
+    </div>
+</form>
+
+<hr />
+
+<form method="post" asp-page-handler="OnPost" class="mt-3" enctype="multipart/form-data">
     <input type="hidden" asp-for="Employee.Id" />
     <input type="hidden" asp-for="Employee.PhotoPath" />
 
