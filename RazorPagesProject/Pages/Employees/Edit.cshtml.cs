@@ -21,15 +21,23 @@ namespace RazorPagesProject.Pages.Employees
             _employeeRepository = employeeRepository;
             _webHostEnvironment = webHostEnvironment;
         }
+        [BindProperty]
         public Employee Employee { get; set; }
         [BindProperty]
         public IFormFile Photo { get; set; }
         [BindProperty]
         public bool Notify { get; set; }
         public string Message { get; set; }
-        public IActionResult OnGet(int id)
+        public IActionResult OnGet(int? id)
         {
-            Employee = _employeeRepository.GetEmployee(id);
+            if (id.HasValue)
+            {
+                Employee = _employeeRepository.GetEmployee(id.Value);
+            } else
+            {
+                Employee = new Employee();
+            }
+           
             if (Employee == null)
             {
                 return RedirectToPage("/NotFound");
@@ -37,24 +45,39 @@ namespace RazorPagesProject.Pages.Employees
             return Page();
         }
 
-        public IActionResult OnPost(Employee employee)
+        public IActionResult OnPost()
         {
-            if (Photo != null)
+            if (ModelState.IsValid)
             {
-                if (employee.PhotoPath != null)
+                if (Photo != null)
                 {
-                    string filePath = Path.Combine(_webHostEnvironment.WebRootPath, "images", employee.PhotoPath);
-                    System.IO.File.Delete(filePath);
+                    if (Employee.PhotoPath != null)
+                    {
+                        string filePath = Path.Combine(_webHostEnvironment.WebRootPath, "images", Employee.PhotoPath);
+                        System.IO.File.Delete(filePath);
+                    }
+
+                    Employee.PhotoPath = processUploadedFile();
+                }
+                if (Employee.Id > 0)
+                {
+                    Employee = _employeeRepository.UpdateEmployee(Employee);
+
+                    TempData["SuccessMessage"] = $"Update {Employee.Name} successful!";
+                } else
+                {
+                    Employee = _employeeRepository.AddEmployee(Employee);
+
+                    TempData["SuccessMessage"] = $"Adding {Employee.Name} successful!";
                 }
 
-                employee.PhotoPath = processUploadedFile();
+                
+
+                return RedirectToPage("Employees");
             }
 
-            Employee = _employeeRepository.UpdateEmployee(employee);
-
-            TempData["SuccessMessage"] = $"Update {Employee.Name} successfull!";
-
-            return RedirectToPage("Employees");
+            return Page();
+           
         }
 
         public void OnPostUpdateNotificationPreferences(int id)
