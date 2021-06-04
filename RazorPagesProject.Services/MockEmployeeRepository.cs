@@ -62,6 +62,32 @@ namespace RazorPagesProject.Services
             return newEmployee;
         }
 
+        public Employee DeleteEmployee(int id)
+        {
+            Employee employeeToDelete = _employeeList.FirstOrDefault(x => x.Id == id);
+            if (employeeToDelete != null)
+            {
+                _employeeList.Remove(employeeToDelete);
+            }
+            return employeeToDelete;
+        }
+
+        public IEnumerable<DepartmentHeadCount> EmployeeCountByDepartment(Department? department)
+        {
+            IEnumerable<Employee> query = _employeeList;
+            if (department.HasValue)
+            {
+                query = query.Where(x => x.Department == department.Value);
+            }
+
+            return query.GroupBy(x => x.Department)
+                .Select(x => new DepartmentHeadCount()
+                {
+                    Department = x.Key.Value,
+                    Count = x.Count()
+                }).ToList();
+        }
+
         public IEnumerable<Employee> GetAllEmployees()
         {
             return _employeeList;
