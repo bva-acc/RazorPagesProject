@@ -31,7 +31,8 @@ namespace RazorPagesProject
                 options.UseSqlServer(Configuration.GetConnectionString("EmployeeDbConnection"));
             });
             services.AddRazorPages();
-            services.AddSingleton<IEmployeeRepository, MockEmployeeRepository>();
+            //services.AddSingleton<IEmployeeRepository, MockEmployeeRepository>();
+            services.AddScoped<IEmployeeRepository, SQLEmployeeRepository>();
             services.Configure<RouteOptions>(options =>
             {
                 options.LowercaseUrls = true;
