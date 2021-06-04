@@ -38,10 +38,8 @@ namespace RazorPagesProject.Pages.Employees
                 Employee = new Employee();
             }
            
-            if (Employee == null)
-            {
-                return RedirectToPage("/NotFound");
-            }
+            if (Employee == null) return RedirectToPage("/NotFound");
+
             return Page();
         }
 
@@ -70,8 +68,6 @@ namespace RazorPagesProject.Pages.Employees
 
                     TempData["SuccessMessage"] = $"Adding {Employee.Name} successful!";
                 }
-
-                
 
                 return RedirectToPage("Employees");
             }
